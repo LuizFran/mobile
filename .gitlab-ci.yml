@@ -1,0 +1,16 @@
+stages:
+  - test
+
+before_script:
+  - npm install
+
+test:
+  stage: test
+  script:
+    - npx wdio run wdio.conf.js
+  artifacts:
+    when: always
+    paths:
+      - allure-results/
+    reports:
+      junit: allure-results/allure-report.xml
